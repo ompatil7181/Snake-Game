@@ -39,14 +39,15 @@ pipeline {
             }
         }
 
-        stage('Docker Push') {
+       stage('Docker Push') {
 
-            steps {
+    steps {
 
-                bat 'docker tag snake-game %IMAGE_NAME%'
-                bat 'docker push %IMAGE_NAME%'
-            }
-        }
+        bat 'docker login -u YOUR_USERNAME -p YOUR_PASSWORD'
+        bat 'docker tag snake-game omkarpatil19/snake-game:latest'
+        bat 'docker push omkarpatil19/snake-game:latest'
+    }
+}
     }
 
     post {
