@@ -43,7 +43,7 @@ pipeline {
 
     steps {
 
-        bat 'docker login -u YOUR_USERNAME -p YOUR_PASSWORD'
+bat 'docker login -u omkarpatil19 -p YOUR_DOCKER_TOKEN'
         bat 'docker tag snake-game omkarpatil19/snake-game:latest'
         bat 'docker push omkarpatil19/snake-game:latest'
     }
