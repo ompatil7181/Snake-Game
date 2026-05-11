@@ -43,8 +43,8 @@ pipeline {
 
     steps {
 
-        bat 'docker tag snake-game omkarpatil19/snake-game:latest'
-        bat 'docker push omkarpatil19/snake-game:latest'
+        bat 'docker tag snake-game omkarpatil19/snake-game'
+        bat 'docker push omkarpatil19/snake-game'
     }
 }
     }
