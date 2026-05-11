@@ -8,18 +8,12 @@ pipeline {
 
     stages {
 
-        stage('Git Checkout') {
-
-            steps {
-                git 'https://github.com/ompatil7181/Snake-Game.git'
-            }
-        }
-
         stage('Maven Build') {
 
             steps {
+
                 dir('snakegame') {
-                    sh 'mvn clean package'
+                    bat 'mvn clean package'
                 }
             }
         }
@@ -27,14 +21,14 @@ pipeline {
         stage('Docker Build') {
 
             steps {
-                sh 'docker build -t snake-game .'
+                bat 'docker build -t snake-game .'
             }
         }
 
         stage('Docker Images') {
 
             steps {
-                sh 'docker images'
+                bat 'docker images'
             }
         }
     }
