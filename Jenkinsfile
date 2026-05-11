@@ -11,7 +11,7 @@ pipeline {
         stage('Git Checkout') {
 
             steps {
-                git 'YOUR_GITHUB_REPO'
+                git 'https://github.com/ompatil7181/Snake-Game.git'
             }
         }
 
