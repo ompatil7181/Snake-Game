@@ -39,14 +39,22 @@ pipeline {
             }
         }
 
-       stage('Docker Push') {
+        stage('Docker Push') {
 
-    steps {
+            steps {
 
-        bat 'docker tag snake-game omkarpatil19/snake-game'
-        bat 'docker push omkarpatil19/snake-game'
-    }
-}
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+
+                    bat 'docker login -u %DOCKER_USER% -p %DOCKER_PASS%'
+                    bat 'docker tag snake-game %IMAGE_NAME%'
+                    bat 'docker push %IMAGE_NAME%'
+                }
+            }
+        }
     }
 
     post {
